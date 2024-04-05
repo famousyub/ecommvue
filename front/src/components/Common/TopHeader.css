@@ -1,0 +1,90 @@
+body {
+    font-family: "Roboto", sans-serif;
+    padding-top: 70px;
+  }
+  
+  h1,h2,h3,h4 {
+    font-family: "Sura", serif;
+    text-transform: uppercase;
+    letter-space: 1px;
+  }
+  
+  .btn-transparent {
+    background: transparent;
+    border: 1px solid #CCC;
+    color: #CCC;
+  }
+  .btn-transparent:hover {
+    background: #CCC;
+    color: #000;
+  }
+  
+  main, aside, footer {
+    padding-top: 60px;
+    padding-bottom: 40px; 
+  }
+  aside img {
+    margin-bottom: 40px;
+  }
+  
+  .clientes {
+    margin-top: 40px;  
+  }
+  .clientes > div {
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  
+  footer {
+    background: #000000;  
+  }
+  footer > section {
+    padding-top: 20px;  
+  }
+  
+  .address .card, .email .card {
+    background: #000000;
+  }
+  .address .card h4, .email .card h4 {
+    color: #FFFFFF
+  }
+  .address .card p, .email .card p {
+    color: #BBBBBB
+  }
+  
+  .copyright p {
+    color: #FFFFFF;
+    margin: 0;  
+  }
+  
+  .nopadding {
+    padding: 0
+  }
+  
+  
+  @media only screen and (min-width: 33.9em) {}
+  @media only screen and (min-width: 47.9em) {
+    body {
+      padding-top: 0
+    }
+    .navbar-light {
+      background: rgba(192,192,192,0.3);  
+    }
+    .navbar-light:hover {
+      background: rgba(192,192,192,0.7);  
+    }
+    .nav-item:not(:last-child) {
+      margin-right: 60px;  
+    }
+  }
+  @media only screen and (min-width: 61.9em) {}
+  @media only screen and (min-width: 74.9em) {}
+
+
+
+
+
+
+
+
+

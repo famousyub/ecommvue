@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="<%= BASE_URL %>eshopping.png">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+  
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+
+
+
+
+
+
+  <!---->
+
+
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,900" rel="stylesheet">
+   
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+ 
+  <link rel="stylesheet" type="text/css" href="./style.css">
+
+  <!--
+   
+  -->
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js">
+
+
+ 
+
+
+ 
+    </script>
+  
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry </strong>
+    </noscript>
+
+
+    <!-- <section id="main">
+
+      <div class="container"> -->
+    <div class="container">
+        <div class="jumbotron">
+    <div id="app"></div>
+  </div>
+  </div>
+
+      <!-- </div>
+    </section> -->
+
+      <script>
+        let toggleBtn = document.querySelector("#navbar-toggle");
+        let collapse = document.querySelector("#navbar-collapse");
+
+        toggleBtn.onclick = () => {
+          collapse.classList.toggle("hidden");
+          collapse.classList.toggle("flex");
+        };
+
+
+         <!-- $(document).ready(function(){
+          alert("jquery work");
+         }) -->
+      </script>
+    <script>
+      $("#nav-tab li:first-child").addClass("bg-[#111] text-white");
+$(".tab-content").hide();
+$(".tab-content:first").show();
+
+$("#nav-tab li").click(function () {
+	$("#nav-tab li").removeClass("bg-[#111] text-white");
+	$(this).addClass("bg-[#111] text-white");
+	$(".tab-content").hide();
+
+	var activeTab = $(this).find("a").attr("href");
+	$(activeTab).fadeIn();
+	return false;
+});
+
+    </script>
+  </body>
+</html>

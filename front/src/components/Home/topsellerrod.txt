@@ -1,0 +1,166 @@
+<template>
+  <div class="small-container">
+    <div class="row row-2">
+<div id="product-list">
+
+<section class="section">
+
+  <div class="container">
+    <div class="wrapper pt-10 level">
+      <div class="box-border max-w-7xl mx-4 sm:columns-1 md:columns-2 lg:columns-3 xl:columns-3">
+        <div class="row">
+      <b-row v-if="topSellProduct.length != 0">
+        <b-col>
+          <h3>{{ topSellViewTitle }}</h3>
+          <hr />
+         
+          <b-row> 
+            <b-col cols="3" v-for="product in topSellProduct" :key="product.id" >
+
+              <article class="mb-4 break-inside p-6 rounded-xl bg-white dark:bg-slate-800 flex flex-col bg-clip-border">
+        <div class="flex pb-6 items-center justify-between">
+          <div class="flex">
+            
+             
+
+
+
+
+          
+
+
+
+              <b-card deck class="mt-4" style ="height: 500px; ">
+                <b-card-img 
+                  style ="height: 230px; "
+                  @click="$router.push({ path: `/product/${product.id}` })"
+                  class="mb-3 rounded-full max-w-none w-12 h-12"
+                
+                  :src="product.image1"
+                />
+
+                <div class="flex flex-col">
+              <div>
+                <b-link @click="$router.push({ path: `/product/${product.id}` })">
+                  <h5>{{ product.title }}</h5>
+                </b-link>
+              </div>
+              <div class="text-slate-500 dark:text-slate-300 dark:text-slate-400">
+                <h6>Price: {{ Number(product.amount) }} {{ product.currency }}</h6>
+              </div>
+
+
+            </div>
+          
+               
+                <b-row class="mt-2" align-v="center">
+                  <b-col>
+                    <b-form-rating  
+
+                      :precision="
+                        Math.round(product.rating) == product.rating ? 0 : 1
+                      "
+                      
+                      size="sm"
+                      show-value
+                      show-value-max
+                      
+                      :value="product.rating"
+                      variant="primary"
+                    />
+                  </b-col>
+                </b-row>
+                <span class="d-flex justify-content-between">
+                <div class="btn">
+                  <AddToCart 
+                    
+                    class="mt-2"
+                    
+                    addButtonTitle="Ajouter au chariot"
+                    addedButtonTitle="dans chariot"
+                    buttonType="sm"
+                    :key="cartComponentKey"
+                    :productId="product.id"
+                    :rating="product.rating"
+                    :currency="product.currency"
+                    :image="product.image1"
+                    :title="product.title"
+                    :amount="Number(product.amount)"
+                    :sales="product.sales"
+                  />
+                  <AddToWishlist
+                    class="mt-2"
+                    :key="wishlistKey"
+                    addButtonTitle="Enregistrer"
+                    addedButtonTitle="Enregistré"
+                    buttonType="sm"
+                    :productId="product.id"
+                  />
+                </div>
+                </span>
+              </b-card>
+
+              </div>
+        </div>
+              </article>
+
+            </b-col>
+          </b-row>
+        
+        </b-col>
+      </b-row>
+    </div>
+
+      </div>
+    </div>
+
+
+    </div>
+
+    </section>
+</div>
+
+    </div>
+  </div>
+  </template>
+  
+  <script>
+  import ProductsService from "@/services/ProductsService.js";
+  import AddToCart from "@/components/MaintainProduct/AddToCart.vue";
+  import AddToWishlist from "@/components/MaintainProduct/AddToWishlist.vue";
+  import './TopSellerProd.css'
+  import './topsellerprod.scss';
+ // import './TopProducts.css';
+  export default {
+    name: "TopSellProduct",
+    components: {
+      AddToCart,
+      AddToWishlist,
+    },
+    data() {
+      return {
+        topSellProduct: [],
+        cartComponentKey: 0,
+        wishlistKey: 2,
+        topSellLimit: 20,
+        topSellViewTitle: "Tous les produits",
+      };
+    },
+    async mounted() {
+      this.topSellProduct = (
+        await ProductsService.topSellProduct(this.topSellLimit)
+      ).data;
+      this.forceRerender();
+    },
+    methods: {
+      forceRerender() {
+        this.cartComponentKey += 1;
+        this.wishlistKey += 1;
+      },
+    },
+    computed: {},
+  };
+  </script>
+  
+  <style lang="scss" scoped></style>
+  

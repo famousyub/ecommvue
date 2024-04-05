@@ -1,0 +1,33 @@
+.disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+  
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
+  }
+  
+  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
+  }
+  
+  .columns li .card {
+    justify-content: space-between;
+    flex-direction: column;
+    border-radius: 2px;
+    overflow: hidden;
+    display: flex;
+  }
+  
+  .columns {
+    align-items: stretch;
+  }
+  
+  .column.product {
+    display: flex;
+  }
+  
+  .card {
+    width: 100%;
+  }
